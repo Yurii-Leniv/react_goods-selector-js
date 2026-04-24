@@ -32,14 +32,16 @@ export const App = () => {
             }}
           />
         </h1>
-      ):(
-        <h1 className="title is-flex is-align-items-center">No goods selected</h1>
+      ) : (
+        <h1 className="title is-flex is-align-items-center">
+          No goods selected
+        </h1>
       )}
 
       <table className="table">
         <tbody>
-          {goods.map(x =>(
-            x !== selectedGood ? (
+          {goods.map(x => {
+            return x !== selectedGood ? (
               <tr data-cy="Good" key={x}>
                 <td>
                   <button
@@ -59,14 +61,18 @@ export const App = () => {
                 </td>
               </tr>
             ) : (
-              <tr data-cy="Good" className="has-background-success-light" key={x}>
+              <tr
+                data-cy="Good"
+                className="has-background-success-light"
+                key={x}
+              >
                 <td>
                   <button
                     data-cy="RemoveButton"
                     type="button"
                     className="button is-info"
                     onClick={() => {
-                      setGood('')
+                      setGood('');
                     }}
                   >
                     -
@@ -77,12 +83,10 @@ export const App = () => {
                   {x}
                 </td>
               </tr>
-            )
-          ))}
-
-
+            );
+          })}
         </tbody>
       </table>
     </main>
-  )
+  );
 };
